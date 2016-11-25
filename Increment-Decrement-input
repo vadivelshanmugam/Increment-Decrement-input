@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plugin - jQuery</title>
+</head>
+<body>
+	<div><a>Plugin - jQuery</a></div>
+	<div class="control-increment">
+		<span class="button minus">-</span><input type="text" name="" id="" value="0" max="5"><span class="button plus">+</span>
+	</div>
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+		$.fn.greenify = function() {
+			this.css( "color", "green" );
+		};
+		 
+		$("a").greenify(); // Makes all the links green.
+		
+		$.fn.inDecrement = function() {
+			var $button = $(this);
+			var newVal = 0;
+			var oldVal = $button.parent().find("input").val();
+			var maxVal = $button.parent().find("input").attr('max');
+
+			if ($button.text() == "+") {
+			  // Don't allow incrementing above max attribute value of input
+			  if(oldVal < maxVal){
+				newVal = parseFloat(oldVal) + 1;
+			  } else {
+				newVal = maxVal;
+			  }
+			} else {
+			  // Don't allow decrementing below zero
+			  if (oldVal > 0) {
+				newVal = parseFloat(oldVal) - 1;
+			  } else {
+				newVal = 0;
+			  }
+			}
+
+			$button.parent().find("input").val(newVal);
+		}
+		
+		$(".plus, .minus").on('click', function(){
+			$(this).inDecrement();
+		});
+		
+		
+</script>
+</body>
+</html>
