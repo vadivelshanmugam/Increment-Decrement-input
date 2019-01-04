@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Plugin - jQuery</title>
+  <title>Increment & Decrement input | Plugin - jQuery</title>
 </head>
 <body>
-	<div><a>Plugin - jQuery</a></div>
+	<div>Plugin - jQuery</div>
 	<div class="control-increment">
 		<span class="button minus">-</span><input type="text" name="" id="" value="0" max="5"><span class="button plus">+</span>
 	</div>
 	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script>
-		$.fn.greenify = function() {
-			this.css( "color", "green" );
-		};
-		 
-		$("a").greenify(); // Makes all the links green.
-		
 		$.fn.inDecrement = function() {
 			var $button = $(this);
 			var newVal = 0;
